@@ -1,0 +1,68 @@
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+</head>
+
+<body>
+
+<div class=flash>{{message}}</div>
+
+<table name="students" border = "1">
+    <tr>
+        <th colspan="4" style="text-align: center">Students</th>
+    </tr>
+  
+    <tr>
+        <th>Student ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Results</th>
+    </tr>
+  
+    {% for student in students %}
+  
+    <tr>
+        <td>{{student.id}}</td>
+        <td>{{student.first_name}}</td>
+        <td>{{student.last_name}}</td>
+        <td><a href="results.html">View</a></td>
+    </tr>
+    {% else %}
+        <tr>No Students Entered</tr>
+    {% endfor %}
+</table>
+
+<table name="students" border = "1">
+    <tr>
+        <th colspan="4" style="text-align: center">Quizzes</th>
+    </tr>
+  
+    <tr>
+        <th>Quiz ID</th>
+        <th>Subject</th>
+        <th># Questions</th>
+        <th>Date</th>
+    </tr>
+    {% for quiz in quizzes %}
+  
+    <tr>
+        <td>{{quiz.id}}</td>
+        <td>{{quiz.subject }}</td>
+        <td>{{quiz.num_questions }}</td>
+        <td>{{quiz.date }}</td>
+    </tr>
+    {% else %}
+        <tr>No Quizzes Entered</tr>
+    {% endfor %}
+</table>
+
+<div><a href="/student/add">Add New Student</a></div>
+<div><a href="/quiz/add">Add New Quiz</a></div>
+<div><a href="/add_results/add">Add Quiz Results</a></div>
+
+</body>
+
+</html>

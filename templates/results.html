@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Quiz Results</title>
+</head>
+<body>
+<form action="/result/add", method="POST">
+
+Student to add a quiz score:
+<select name="add_student">
+    <option value="">Choose a student</option>
+    {% for student in students %}
+        <option value="{{student.id}}" name="student.id">{{student.first_name, student.last_name}}</option>
+    {% endfor %}
+</select><br>
+        Quiz to add a score:
+<select name="add_quiz", method="POST">
+    {% for quiz in quizzes %}
+        <option value="{{quiz.id}}" name="quiz.id">{{quiz.subject}}</option>
+    {% endfor %}
+    </select><br>
+    Score on this quiz:
+    <input type="text", name="add_score"></input>
+</select><br>
+
+    <input type="submit" value="Add Student's Quiz Result"/>
+
+    </form>
+ <div><a href="/dashboard">Dashboard</a></div>
+
+
+</body>
+</html>
